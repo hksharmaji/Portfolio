@@ -1,0 +1,112 @@
+@import "tailwindcss";
+
+@layer utilities {
+  .roller-hover {
+    display: inline-block;
+    position: relative;
+    perspective: 600px;
+  }
+
+  .roller-hover::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform-origin: bottom center;
+    transform: rotateX(-90deg);
+    opacity: 0;
+    transition: all 0.4s ease;
+  }
+
+  .roller-hover:hover::after {
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
+
+  .roller-hover:hover span {
+    transform: rotateX(90deg);
+    opacity: 0;
+  }
+
+  .roller-hover span {
+    display: inline-block;
+    transition: all 0.4s ease;
+    transform-origin: top center;
+  }
+}
+@keyframes spin-slow {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.animate-spin-slow {
+  animation: spin-slow 60s linear infinite;
+}
+
+@layer utilities {
+  .animate-fadeInUp {
+    @apply opacity-100 transform translate-y-0 transition-all duration-700;
+  }
+
+  .fade-in-up {
+    @apply opacity-0 translate-y-6;
+  }
+}
+@layer utilities {
+  .fade-in-up {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: all 0.6s ease-in-out;
+  }
+
+  .animate-fadeInUp {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* Hide scrollbar but allow scroll */
+.hide-scrollbar {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE & Edge */
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+/* Animations for scroll reveal */
+@layer utilities {
+  .fade-in-up {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: all 0.6s ease-in-out;
+  }
+
+  .animate-fadeInUp {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@layer utilities {
+  .fade-in-up {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: all 0.6s ease-in-out;
+  }
+
+  .animate-fadeInUp {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .hide-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
