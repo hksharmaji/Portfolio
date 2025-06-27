@@ -1,5 +1,6 @@
 import React from "react";
 import { FaLinkedin, FaGithub, FaDribbble, FaTwitter } from "react-icons/fa";
+import { Link } from "react-scroll";
 
 const Footer = () => {
   return (
@@ -14,7 +15,7 @@ const Footer = () => {
             Full stack Developer
           </p>
           <p className="text-sm text-gray-500 mt-4">
-            📩 harish.sharma@email.com
+            📩 harishkumarsharma6350@gmail.com
           </p>
         </div>
 
@@ -23,24 +24,40 @@ const Footer = () => {
           <h3 className="text-lg font-semibold mb-4">Explore</h3>
           <ul className="space-y-2 text-gray-400 text-sm">
             <li>
-              <a href="#about" className="hover:text-purple-500 transition">
+              <Link
+                smooth={true}
+                to="about"
+                className="hover:text-purple-500 transition"
+              >
                 About Me
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#skills" className="hover:text-purple-500 transition">
-                Skills
-              </a>
+              <Link
+                smooth={true}
+                to="skill"
+                className="hover:text-purple-500 transition"
+              >
+                Skill
+              </Link>
             </li>
             <li>
-              <a href="#projects" className="hover:text-purple-500 transition">
-                Projects
-              </a>
+              <Link
+                smooth={true}
+                to="project"
+                className="hover:text-purple-500 transition"
+              >
+                Project
+              </Link>
             </li>
             <li>
-              <a href="#contact" className="hover:text-purple-500 transition">
+              <Link
+                smooth={true}
+                to="contact"
+                className="hover:text-purple-500 transition"
+              >
                 Contact
-              </a>
+              </Link>
             </li>
           </ul>
         </div>

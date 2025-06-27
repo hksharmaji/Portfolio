@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import Hero from "../src/components/Hero";
 import Navbar from "../src/components/Navbar";
 import About from "./components/about/about";

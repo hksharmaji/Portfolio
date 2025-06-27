@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { FaCode, FaBolt, FaPalette } from "react-icons/fa";
 import { LuMousePointerClick } from "react-icons/lu";
+import { Element } from "react-scroll";
 
 const cardData = [
   {
@@ -43,79 +44,83 @@ const About = () => {
   }, []);
 
   return (
-    <section className="relative bg-zinc-900 text-white font-urban px-6 py-18 overflow-hidden">
-      {/* Glow Background */}
-      <div className="absolute top-[-200px] left-[-200px] w-[600px] h-[600px] bg-purple-600 rounded-full blur-[200px] opacity-30 z-0 animate-pulse" />
+    <Element name="about">
+      <section className="relative bg-zinc-900 text-white font-urban px-6 py-24 overflow-hidden">
+        {/* Glow Background */}
+        <div className="absolute top-[-200px] left-[-200px] w-[600px] h-[600px] bg-purple-600 rounded-full blur-[200px] opacity-30 z-0 animate-pulse" />
 
-      <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-        {/* Left Side - About Text */}
-        <div className="text-left space-y-6">
-          <h2 className="text-4xl sm:text-5xl font-extrabold">About Me</h2>
-          <p className="text-lg text-zinc-300">
-            Hi, I'm{" "}
-            <span className="text-purple-400 font-semibold">Harish Sharma</span>
-            , a{" "}
-            <span className="text-purple-400 font-semibold">
-              Full-Stack Developer
-            </span>{" "}
-            who blends design thinking with technical expertise. I specialize in
-            building fast, clean, and delightful web applications.
-          </p>
-          <p className="text-base text-zinc-400">
-            I take pride in writing scalable code, crafting intuitive user
-            experiences, and optimizing performance across all platforms.
-            Whether it’s a landing page or a complex dashboard, I bring
-            creativity and clarity to every pixel and function.
-          </p>
+        <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+          {/* Left Side - About Text */}
+          <div className="text-left space-y-6">
+            <h2 className="text-4xl sm:text-5xl font-extrabold">About Me</h2>
+            <p className="text-lg text-zinc-300">
+              Hi, I'm{" "}
+              <span className="text-purple-400 font-semibold">
+                Harish Sharma
+              </span>
+              , a{" "}
+              <span className="text-purple-400 font-semibold">
+                Full-Stack Developer
+              </span>{" "}
+              who blends design thinking with technical expertise. I specialize
+              in building fast, clean, and delightful web applications.
+            </p>
+            <p className="text-base text-zinc-400">
+              I take pride in writing scalable code, crafting intuitive user
+              experiences, and optimizing performance across all platforms.
+              Whether it’s a landing page or a complex dashboard, I bring
+              creativity and clarity to every pixel and function.
+            </p>
 
-          {/* CTA Button */}
-          <div className="pt-4">
-            <a
-              href="/resume.pdf"
-              target="_blank"
-              className="inline-block bg-purple-500 hover:bg-purple-600 text-white px-6 py-3 rounded-xl font-semibold shadow-lg transition duration-300"
-            >
-              Let's Connect
-            </a>
-          </div>
-        </div>
-
-        {/* Right Side - Scrollable Card Box */}
-        <div className="relative w-full">
-          <div className="max-h-[480px] border border-purple-400  rounded-3xl py-2 overflow-y-scroll hide-scrollbar pr-2">
-            <div className="flex flex-col gap-6  p-4 mb-4 ">
-              {cardData.map((card, index) => (
-                <div
-                  key={index}
-                  className="fade-in-up bg-zinc-800/30 border border-purple-500/10 backdrop-blur-md p-6 rounded-xl shadow-md hover:shadow-purple-500/30 transition-all duration-500"
-                >
-                  {card.icon}
-                  <h3 className="text-xl font-semibold mb-2">{card.title}</h3>
-                  <p className="text-zinc-300 text-sm">{card.desc}</p>
-                </div>
-              ))}
+            {/* CTA Button */}
+            <div className="pt-4">
+              <a
+                href="/resume.pdf"
+                target="_blank"
+                className="inline-block bg-purple-500 hover:bg-purple-600 text-white px-6 py-3 rounded-xl font-semibold shadow-lg transition duration-300"
+              >
+                Let's Connect
+              </a>
             </div>
           </div>
 
-          {/* Scroll Indicator */}
-          <div className="mt-4 flex justify-center">
-            <svg
-              className="animate-bounce w-6 h-6 text-purple-400"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M19 9l-7 7-7-7"
-              />
-            </svg>
+          {/* Right Side - Scrollable Card Box */}
+          <div className="relative w-full">
+            <div className="max-h-[480px] border border-purple-400  rounded-3xl py-2 overflow-y-scroll hide-scrollbar pr-2">
+              <div className="flex flex-col gap-6  p-4 mb-4 ">
+                {cardData.map((card, index) => (
+                  <div
+                    key={index}
+                    className="fade-in-up bg-zinc-800/30 border border-purple-500/10 backdrop-blur-md p-6 rounded-xl shadow-md hover:shadow-purple-500/30 transition-all duration-500"
+                  >
+                    {card.icon}
+                    <h3 className="text-xl font-semibold mb-2">{card.title}</h3>
+                    <p className="text-zinc-300 text-sm">{card.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Scroll Indicator */}
+            <div className="mt-4 flex justify-center">
+              <svg
+                className="animate-bounce w-6 h-6 text-purple-400"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </Element>
   );
 };
 

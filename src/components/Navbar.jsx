@@ -1,37 +1,41 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Menu, X, Moon, Sun } from "lucide-react";
+import { ThemeContext } from "../context/ThemeContext";
+import { Link } from "react-scroll";
 
-const navLinks = ["Home", "About", "Projects", "Skills", "Contact"];
+const navLinks = ["Home", "About", "Project", "Skill", "Contact"];
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [darkMode, setDarkMode] = useState(true);
-
+  const { setTheme, theme } = useContext(ThemeContext);
   const toggleTheme = () => {
-    document.documentElement.classList.toggle("dark");
+    setTheme((prev) => (prev === "light" ? "dark" : "light"));
     setDarkMode(!darkMode);
   };
-
+  console.log(darkMode, theme);
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-zinc-900/80 backdrop-blur-md border-b border-zinc-800">
+    <header className="fixed top-0 left-0 w-full z-50 bg-zinc-900/80 backdrop-blur-md border-b border-zinc-800 ">
       <nav className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
         {/* Left Logo */}
-        <div className="text-white text-2xl font-bold tracking-tight">
-          Harish.dev
+        <div className="text-white text-2xl font-bold tracking-tight ">
+          Harish
+          <span className="text-purple-400  light:text-light">.dev</span>
         </div>
 
         {/* Center Nav Links */}
         <ul className="hidden md:flex space-x-8 items-center absolute left-1/2 transform -translate-x-1/2">
           {navLinks.map((link, idx) => (
             <li key={idx}>
-              <a
-                href={`#${link.toLowerCase()}`}
+              <Link
+                smooth={true}
+                to={`${link.toLowerCase()}`}
                 className="relative text-zinc-300 hover:text-white text-md font-medium inline-block transition-transform duration-300"
               >
                 <span className="block transform hover:-translate-y-1 hover:rotate-[5deg] transition duration-300 ease-in-out">
                   {link}
                 </span>
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
@@ -44,12 +48,12 @@ const Navbar = () => {
           >
             {darkMode ? <Sun size={22} /> : <Moon size={22} />}
           </button>
-          <a
-            href="#contact"
+          <Link
+            to="contact"
             className="px-5 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-full shadow-md transition text-sm"
           >
             Hire Me
-          </a>
+          </Link>
         </div>
 
         {/* Mobile Menu Button */}
